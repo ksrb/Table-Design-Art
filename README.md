@@ -1,2 +1,2 @@
 # WSTest
-Web Store Notes and Test
+Shopify template

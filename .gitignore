@@ -1,0 +1,7 @@
+#IDEA
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+
+#Shopify
+/configs/settings_data.json
+/config.yml
