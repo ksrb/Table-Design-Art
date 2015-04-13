@@ -118,6 +118,10 @@
     "account": {
       "title": "My Account",
       "details": "Account Details",
+      "address" : {
+        "one" : "Address",
+        "other" : "Addresses"
+      },
       "view_addresses": "View Addresses",
       "return": "Return to Account Details",
       "resale_license": "Resale license"
@@ -167,7 +171,7 @@
       "order_number": "Order",
       "date": "Date",
       "payment_status": "Payment Status",
-      "fulfillment_status": "Fulfillment Status",
+      "fulfillment_status": "Order status",
       "total": "Total",
       "none": "You haven't placed any orders yet."
     },

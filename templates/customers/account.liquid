@@ -8,7 +8,7 @@
 
 {% layout settings.customer_layout %}
 
-<h1>{{ 'customer.account.title' | t }}</h1>
+<h2><a href="/account">{{ 'customer.account.title' | t }}</a></h2>
 
 <hr class="hr--small">
 
@@ -62,7 +62,7 @@
   </div>
 
   <div class="grid__item one-third medium-down--one-whole">
-    <h4>{{ 'customer.account.details' | t }}</h4>
+    <h4>{{ 'customer.account.address' | t: count: customer.addresses_count }}</h4>
 
     <h5>{{ customer.name }}</h5>
 
