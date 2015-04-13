@@ -1084,6 +1084,34 @@ html input[disabled] {
   }
 }
 
+/*
+ Override edit_customer_address_link colors
+
+ ==Additional Details==
+ The edit_customer_address_link filter automatically creates:
+ <a href="#" onclick="Shopify.CustomerAddress.toggleForm([some numbers]);return false">[arg]</a>
+
+ This link cannot be modified so a class cannot be added to change the appearance.
+ Therefore the link has to be wrapped in another element and higher specifity rule must be used to
+ override the link, i.e.:
+ <span class="btn anchor-override">
+  <a href="#" onclick="Shopify.CustomerAddress.toggleForm([some numbers]);return false">[arg]</a>
+</span>
+ */
+.btn.anchor-override {
+  a {
+    color: $colorBtnPrimaryText;
+    &:hover {
+      color: $colorBtnPrimaryText;
+    }
+
+    &:active,
+    &:focus {
+      color: $colorBtnPrimaryText;
+    }
+  }
+}
+
 .btn--secondary,
 .rte .btn--secondary {
   @extend .btn;

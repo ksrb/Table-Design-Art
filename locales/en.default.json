@@ -118,7 +118,8 @@
       "title": "My Account",
       "details": "Account Details",
       "view_addresses": "View Addresses",
-      "return": "Return to Account Details"
+      "return": "Return to Account Details",
+      "resale_license": "Resale license"
     },
     "activate_account": {
       "title": "Activate Account",
@@ -247,7 +248,7 @@
     },
     "customer": {
       "account": "Account",
-      "logged_in_as_html": "Logged in as {{ first_name }}",
+      "logged_in_as_html": "Your account ({{ first_name }})",
       "log_out": "Log out",
       "log_in": "Log in",
       "create_account": "Create account"
