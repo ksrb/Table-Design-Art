@@ -108,20 +108,20 @@
                 </div>
                 <div class="grid__item large--one-quarter medium--one-third">
                   {% comment %}
-                    You can show a leading 'from' or 'up to' by checking 'product.price_varies'
+                    You can show a leading 'from' or 'up to' by checking 'product_price_varies'
                     if your variants have different prices.
                   {% endcomment %}
                   {% if on_sale %}
-                    {% if product.price_varies %}
+                    {% if product_price_varies %}
                       {% assign sale_price = product.price | money %}
                       {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
                     {% else %}
                       <strong>{{ 'products.product.on_sale' | t }}</strong>
-                      {{ product.price | money }}
+                      {{ product_price | money }}
                     {% endif %}
                   {% else %}
-                    {% if product.price_varies %}{{ 'products.general.from' | t }}{% endif %}
-                    {{ product.price | money }}
+                    {% if product_price_varies %}{{ 'products.general.from' | t }}{% endif %}
+                      {{ product_price | money }}
                   {% endif %}
                   {% if sold_out %}
                     <br><strong>{{ 'products.product.sold_out' | t }}</strong>

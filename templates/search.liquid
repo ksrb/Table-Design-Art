@@ -47,7 +47,10 @@
             <hr>
 
             <div class="grid-uniform">
-              {% for item in search.results  %}
+              {% for item in search.results %}
+                <!-- Bold: CSP 3 -->
+                {% include 'boldcsp_helper' with 'search' %}
+                <!-- // end CSP 3 -->
                 {% comment %}
                   Check if the product is on sale and set a variable to be used below.
                 {% endcomment %}

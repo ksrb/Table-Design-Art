@@ -9,6 +9,10 @@
 
 {% endcomment %}
 
+<!-- Bold: CSP 4 -->
+{% include 'boldcsp_helper' with 'product' %}
+<!-- // end CSP 4 -->
+
 <div itemscope itemtype="http://schema.org/Product">
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
@@ -75,6 +79,9 @@
           {% endcomment %}
           <select name="id" id="productSelect" class="product-single__variants">
             {% for variant in product.variants %}
+              <!-- Bold: CSP 5 -->
+              {% include 'boldcsp_helper' with 'variants' %}
+              <!-- // end CSP 5 -->
               {% if variant.available %}
 
                 {% comment %}
@@ -183,7 +190,7 @@
     {% endif %}
 
     // Hide selectors if we only have 1 variant and its title contains 'Default'.
-    {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+    {% if product_variants_size == 1 and product.variants.first.title contains 'Default' %}
       $('.selector-wrapper').hide();
     {% endif %}
   });

@@ -69,11 +69,11 @@
         {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
       {% else %}
         <strong>{{ 'products.product.on_sale' | t }}</strong>
-        {{ product.price | money }}
+        {{ product_price | money }}
       {% endif %}
     {% else %}
       {% if product.price_varies %}{{ 'products.general.from' | t }}{% endif %}
-      {{ product.price | money }}
+      {{ product_price | money }}
     {% endif %}
     {% if sold_out %}
       <br><strong>{{ 'products.product.sold_out' | t }}</strong>

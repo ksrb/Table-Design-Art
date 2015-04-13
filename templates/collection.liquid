@@ -52,7 +52,9 @@
         See the snippet 'product-grid-item' for the layout.
       {% endcomment %}
       {% for product in collection.products %}
-
+        <!-- Bold: CSP 2 -->
+        {% include 'boldcsp_helper' with 'collection' %}
+        <!-- // end CSP 2 -->
         {% include 'product-grid-item' %}
 
       {% else %}
