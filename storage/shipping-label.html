@@ -1,0 +1,150 @@
+<style>
+    /*===Page===*/
+    .container {
+        box-sizing: border-box;
+
+        height: 11in;
+        width: 8.5in;
+        padding: .5in .125in;
+
+        position: relative;
+
+        /*Position determined by experimentation*/
+        left: -10px;
+    }
+
+    .shipping-label {
+        box-sizing: border-box;
+
+        height: 2in;
+        width: 3.8in;
+
+        float: left;
+        padding: 10px;
+
+        /*Position determined by experimentation*/
+        margin-bottom: -13px;
+    }
+
+    .shipping-label p {
+        margin: 2px 0;
+        font-size: 14px;
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    .shipping-label .hr-divider {
+        padding: 0;
+        margin: 0;
+    }
+
+    .shipping-label:nth-child(2n+1) {
+        margin-right: .1875in;
+    }
+
+    .from p {
+        text-align: center;
+    }
+
+    .to {
+        display: flex;
+    }
+
+    .to .address {
+        margin-left: 20px;
+    }
+
+    .center {
+        display: block;
+        margin: 0 auto;
+    }
+
+    /*===END Page===*/
+
+    /*===Utility===*/
+    .warning {
+        color: red;
+    }
+
+    /*New clearfix*/
+    .group:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /*===END Utility===*/
+
+    #overlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 8.5in;
+    }
+</style>
+<script>
+
+    var shippingLabel = (function () {
+
+        function duplicateElem(elem, times) {
+            for (var i = 0; i < times; i++) {
+                elem.parentNode.insertBefore(elem.cloneNode(true), elem.nextSibling);
+            }
+        }
+
+        var duplicate = function (times) {
+            var container = document.getElementsByClassName("shipping-label")[0];
+            duplicateElem(container, times - 1);
+        };
+
+        return {
+            duplicate: duplicate
+        };
+    })();
+
+    window.onload = shippingLabel.duplicate(10);
+
+</script>
+<!--
+Printing overlay for Avery 2x5 shipping labels
+<img id="overlay" src="https://cdn.shopify.com/s/files/1/0813/0805/files/shipping_label_overlay.svg?2974786446127669609"/>
+-->
+<div class="container group">
+    <section class="shipping-label">
+
+        <article class="from">
+            <img class="logo center"
+                 src="https://cdn.shopify.com/s/files/1/0813/0805/files/Logo.svg?2974786446127669609"
+                 alt="Table Design Art"/>
+
+            <p>
+                {{ shop.address }}, {{ shop.city }} {{ shop.province_code }} {{ shop.zip | upcase }} {{ shop.country }}
+            </p>
+        </article>
+
+        <hr class="hr-divider"/>
+
+        <article class="to">
+            {% if shipping_address %}
+            <h4>To:</h4>
+
+            <p class="address">
+                <strong>{{ shipping_address.name }}</strong><br/>
+                {% if shipping_address.company %}
+                {{ shipping_address.company }}<br/>
+                {% endif %}
+                {{ shipping_address.street }}<br/>
+                {{ shipping_address.city }}
+                {{ shipping_address.province_code }} {{ shipping_address.zip | upcase }}<br/>
+                {{ shipping_address.country }}
+            </p>
+
+            {% else %}
+            <h3 class="warning">Customer does not have a shipping address!!!</h3>
+            {% endif %}
+        </article>
+
+    </section>
+</div>
